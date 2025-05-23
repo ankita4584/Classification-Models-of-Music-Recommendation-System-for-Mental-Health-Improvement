@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Music effect Prediction - Random Forest</title>
+</head>
+<body>
+    <h2>Enter Input Features</h2>
+    <form method="post">
+        {% for feature in features %}
+            <label>{{ feature }}:</label>
+            <input type="text" name="{{ feature }}" required><br><br>
+        {% endfor %}
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction is not none %}
+        {% if prediction == 1.0 %}
+          <h3>Predicted Effect of Music: No Effect</h3>
+        {% elif prediction == 0.0 %}
+           <h3>Predicted Effect of Music: Improve</h3>
+        {% endif %}
+
+    {% endif %}
+
+</body>
+</html>
